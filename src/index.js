@@ -16,7 +16,7 @@ app.get('/',(req,res) => {
     res.send("Hello world!");
 });
 
-app.post("/add/:num1/:num2", (req,res) => {
+app.post("/add", (req,res) => {
     let num1 = req.body.num1;
     let num2 = req.body.num2;
     if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
@@ -50,7 +50,7 @@ app.post("/add/:num1/:num2", (req,res) => {
     }
 });
 
-app.post("/sub/:num1/:num2", (req,res) => {
+app.post("/sub", (req,res) => {
     let num1 = req.params.num1;
     let num2 = req.params.num2;
     if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
@@ -84,7 +84,7 @@ app.post("/sub/:num1/:num2", (req,res) => {
     }
 });
 
-app.post("/multiply/:num1/:num2", (req,res) => {
+app.post("/multiply", (req,res) => {
     let num1 = req.params.num1;
     let num2 = req.params.num2;
     if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
@@ -118,7 +118,7 @@ app.post("/multiply/:num1/:num2", (req,res) => {
     }
 });
 
-app.post("/divide/:num1/:num2", (req,res) => {
+app.post("/divide", (req,res) => {
     let num1 = req.params.num1;
     let num2 = req.params.num2;
     if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
