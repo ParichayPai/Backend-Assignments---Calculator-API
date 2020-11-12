@@ -80,7 +80,7 @@ app.post("/sub", (req,res) => {
     if(!isNaN(parseFloat(num1))  && !isNaN(parseFloat(num1))) {
         res.send({
             status: "Success",
-            message: "the sum of given two numbers",
+            message: "the difference of given two numbers",
             sum: parseFloat(num1) - parseFloat(num2)
         });
     }
@@ -115,7 +115,7 @@ app.post("/multiply", (req,res) => {
     if(!isNaN(parseFloat(num1))  && !isNaN(parseFloat(num1))) {
         res.send({
             status: "Success",
-            message: "the sum of given two numbers",
+            message: "The product of given numbers",
             sum: parseFloat(num1) * parseFloat(num2)
         });
     }
@@ -151,7 +151,7 @@ app.post("/divide", (req,res) => {
     if(!isNaN(parseFloat(num1)) && !isNaN(parseFloat(num1))) {
         res.send({
             status: "Success",
-            message: "the sum of given two numbers",
+            message: "The division of given numbers",
             sum: parseFloat(num1) + parseFloat(num2)
         });
     }else if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
