@@ -12,6 +12,153 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
 // your code goes here
+app.get('/',(req,res) => {
+    res.send("Hello world!");
+});
+
+app.post("/add/:num1/:num2", (req,res) => {
+    let num1 = req.params.num1;
+    let num2 = req.params.num2;
+    if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
+        res.send({
+            status: "Error",
+            message: "Overflow",
+            sum: undefined
+        });
+        return;
+    }
+    if(parseFloat(num2) < -1000000 || parseFloat(num1) < -1000000){
+        res.send({
+            status: "Error",
+            message: "Underflow",
+            sum: undefined
+        });
+        return;
+    }
+    if(!isNaN(parseFloat(num1))  && !isNaN(parseFloat(num1))) {
+        res.send({
+            status: "Success",
+            message: "the sum of given two numbers",
+            sum: parseFloat(num1) + parseFloat(num2)
+        });
+    }else if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
+        res.send({
+            status: "failure",
+            message: "Invalid datatypes",
+            sum: undefined
+        });
+    }
+});
+
+app.post("/sub/:num1/:num2", (req,res) => {
+    let num1 = req.params.num1;
+    let num2 = req.params.num2;
+    if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
+        res.send({
+            status: "Error",
+            message: "Overflow",
+            sum: undefined
+        });
+        return;
+    }
+    if(parseFloat(num2) < -1000000 || parseFloat(num1) < -1000000){
+        res.send({
+            status: "Error",
+            message: "Underflow",
+            sum: undefined
+        });
+        return;
+    }
+    if(!isNaN(parseFloat(num1))  && !isNaN(parseFloat(num1))) {
+        res.send({
+            status: "Success",
+            message: "the sum of given two numbers",
+            sum: parseFloat(num1) - parseFloat(num2)
+        });
+    }else if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
+        res.send({
+            status: "failure",
+            message: "Invalid datatypes",
+            sum: undefined
+        });
+    }
+});
+
+app.post("/multiply/:num1/:num2", (req,res) => {
+    let num1 = req.params.num1;
+    let num2 = req.params.num2;
+    if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
+        res.send({
+            status: "Error",
+            message: "Overflow",
+            sum: undefined
+        });
+        return;
+    }
+    if(parseFloat(num2) < -1000000 || parseFloat(num1) < -1000000){
+        res.send({
+            status: "Error",
+            message: "Underflow",
+            sum: undefined
+        });
+        return;
+    }
+    if(!isNaN(parseFloat(num1))  && !isNaN(parseFloat(num1))) {
+        res.send({
+            status: "Success",
+            message: "the sum of given two numbers",
+            sum: parseFloat(num1) * parseFloat(num2)
+        });
+    }else if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
+        res.send({
+            status: "failure",
+            message: "Invalid datatypes",
+            sum: undefined
+        });
+    }
+});
+
+app.post("/divide/:num1/:num2", (req,res) => {
+    let num1 = req.params.num1;
+    let num2 = req.params.num2;
+    if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
+        res.send({
+            status: "Error",
+            message: "Overflow",
+            sum: undefined
+        });
+        return;
+    }
+    if(parseFloat(num2) < -1000000 || parseFloat(num1) < -1000000){
+        res.send({
+            status: "Error",
+            message: "Underflow",
+            sum: undefined
+        });
+        return;
+    }
+    if(parseFloat(num2) === 0){
+        res.send({
+            status: "Error",
+            message: "Cannot divide by zero",
+            sum: undefined
+        });
+        return;
+    }
+    if(!isNaN(parseFloat(num1)) && !isNaN(parseFloat(num1))) {
+        res.send({
+            status: "Success",
+            message: "the sum of given two numbers",
+            sum: parseFloat(num1) + parseFloat(num2)
+        });
+    }else if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
+        res.send({
+            status: "failure",
+            message: "Invalid datatypes",
+            sum: undefined
+        });
+    }
+});
 
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))
