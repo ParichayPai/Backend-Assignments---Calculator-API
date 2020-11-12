@@ -51,8 +51,16 @@ app.post("/add", (req,res) => {
 });
 
 app.post("/sub", (req,res) => {
-    let num1 = req.params.num1;
-    let num2 = req.params.num2;
+    let num1 = req.body.num1;
+    let num2 = req.body.num2;
+    if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
+        res.send({
+            status: "failure",
+            message: "Invalid datatypes",
+            sum: undefined
+        });
+        return;
+    }
     if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
         res.send({
             status: "Error",
@@ -75,18 +83,19 @@ app.post("/sub", (req,res) => {
             message: "the sum of given two numbers",
             sum: parseFloat(num1) - parseFloat(num2)
         });
-    }else if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
+    }
+});
+
+app.post("/multiply", (req,res) => {
+    let num1 = req.body.num1;
+    let num2 = req.body.num2;
+    if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
         res.send({
             status: "failure",
             message: "Invalid datatypes",
             sum: undefined
         });
     }
-});
-
-app.post("/multiply", (req,res) => {
-    let num1 = req.params.num1;
-    let num2 = req.params.num2;
     if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
         res.send({
             status: "Error",
@@ -109,18 +118,12 @@ app.post("/multiply", (req,res) => {
             message: "the sum of given two numbers",
             sum: parseFloat(num1) * parseFloat(num2)
         });
-    }else if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
-        res.send({
-            status: "failure",
-            message: "Invalid datatypes",
-            sum: undefined
-        });
     }
 });
 
 app.post("/divide", (req,res) => {
-    let num1 = req.params.num1;
-    let num2 = req.params.num2;
+    let num1 = req.body.num1;
+    let num2 = req.body.num2;
     if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
         res.send({
             status: "Error",
