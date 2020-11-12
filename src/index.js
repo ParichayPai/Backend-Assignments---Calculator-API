@@ -44,7 +44,7 @@ app.post("/add", (req,res) => {
     }else if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
         res.send({
             status: "failure",
-            message: "Invalid datatypes",
+            message: "Invalid data types",
             sum: undefined
         });
     }
@@ -56,7 +56,7 @@ app.post("/sub", (req,res) => {
     if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
         res.send({
             status: "failure",
-            message: "Invalid datatypes",
+            message: "Invalid data types",
             sum: undefined
         });
         return;
@@ -92,7 +92,7 @@ app.post("/multiply", (req,res) => {
     if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
         res.send({
             status: "failure",
-            message: "Invalid datatypes",
+            message: "Invalid data types",
             sum: undefined
         });
     }
@@ -157,7 +157,7 @@ app.post("/divide", (req,res) => {
     }else if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
         res.send({
             status: "failure",
-            message: "Invalid datatypes",
+            message: "Invalid data types",
             sum: undefined
         });
     }
