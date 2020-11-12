@@ -17,8 +17,8 @@ app.get('/',(req,res) => {
 });
 
 app.post("/add/:num1/:num2", (req,res) => {
-    let num1 = req.params.num1;
-    let num2 = req.params.num2;
+    let num1 = req.body.num1;
+    let num2 = req.body.num2;
     if(parseFloat(num1) > 1000000 || parseFloat(num2) > 1000000){
         res.send({
             status: "Error",
