@@ -36,11 +36,20 @@ app.post("/add", (req,res) => {
         return;
     }
     if(!isNaN(parseFloat(num1))  && !isNaN(parseFloat(num1))) {
-        res.send({
-            status: "success",
-            message: "the sum of given two numbers",
-            sum: parseFloat(num1) + parseFloat(num2)
-        });
+        let sum = parseFloat(num1) + parseFloat(num2);
+        if(sum < 1000000) {
+            res.send({
+                status: "success",
+                message: "the sum of given two numbers",
+                sum: sum
+            });
+        }else{
+            res.send({
+                status: "Error",
+                message: "Overflow",
+                sum: undefined
+            });
+        }
     }else if(isNaN(parseFloat(num1)) || isNaN(parseFloat(num1))){
         res.send({
             status: "failure",
@@ -113,11 +122,20 @@ app.post("/multiply", (req,res) => {
         return;
     }
     if(!isNaN(parseFloat(num1))  && !isNaN(parseFloat(num1))) {
-        res.send({
-            status: "success",
-            message: "The product of given numbers",
-            result: parseFloat(num1) * parseFloat(num2)
-        });
+        let result = parseFloat(num1) * parseFloat(num2);
+        if(result < 1000000){
+            res.send({
+                status: "success",
+                message: "The product of given numbers",
+                result: result
+            });
+        }else{
+            res.send({
+                status: "Error",
+                message: "Overflow",
+                result: undefined
+            });
+        }
     }
 });
 
